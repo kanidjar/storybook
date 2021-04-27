@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "cli": {
+        "defaultCollection": "@nrwl/angular"
+    },
+    "defaultProject": "extranet",
+    "schematics": {
+        "@nrwl/angular": {
+            "application": {
+                "linter": "eslint"
+            },
+            "library": {
+                "linter": "eslint"
+            },
+            "storybook-configuration": {
+                "linter": "eslint"
+            }
+        },
+        "@nrwl/angular:application": {
+            "style": "css",
+            "linter": "eslint",
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "style": "css",
+            "linter": "eslint",
+            "unitTestRunner": "jest"
+        },
+        "@nrwl/angular:component": {
+            "style": "css"
+        }
+    },
+    "projects": {
+        "extranet": {
+            "root": "apps/extranet",
+            "sourceRoot": "apps/extranet/src",
+            "projectType": "application",
+            "architect": {
+                "storybook": {
+                    "builder": "@nrwl/storybook:storybook",
+                    "options": {
+                        "uiFramework": "@storybook/angular",
+                        "port": 4400,
+                        "config": {
+                            "configFolder": "./.storybook"
+                        }
+                    },
+                    "configurations": {
+                        "ci": {
+                            "quiet": true
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

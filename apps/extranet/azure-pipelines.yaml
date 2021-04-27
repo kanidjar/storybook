@@ -1,0 +1,29 @@
+pool:
+    vmImage: "ubuntu-20.04"
+
+trigger:
+    paths:
+        include:
+            - apps/extranet/*
+    branches:
+        include:
+            - master
+
+extends:
+    template: ../../.azure/pipelines/application.yaml
+    parameters:
+        develop:
+            environment: Develop
+            variableGroup: fm-extranet-dev
+            azConnection: EHQ-FM-Portal-DEV
+            enabled: true
+        release:
+            environment: Release
+            variableGroup: fm-extranet-uat
+            azConnection: EHQ-FM-Portal-UAT
+            enabled: true
+        production:
+            environement: Production
+            variableGroup: fm-extranet-prod
+            azConnection: EHQ-FM-Portal-PROD
+            enabled: true

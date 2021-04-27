@@ -1,0 +1,5 @@
+{
+    "extends": "../tsconfig.base.json",
+    "exclude": ["../apps/extranet-e2e/**", "../apps/landing-page-e2e/**", "../**/*.spec.ts", "../node_modules/**"],
+    "include": ["../apps/**/*.ts", "../libs/**/*.ts"]
+}
